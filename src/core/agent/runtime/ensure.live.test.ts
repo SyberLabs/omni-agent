@@ -376,7 +376,7 @@ describe.skipIf(!runLiveEnsure)('runtime.ensure launches or reuses a real Chrome
         try {
             const ensured = await json(
                 await discoverPost(
-                    new Request('http://local/api/agent', {
+                    new Request('http://localhost/api/agent', {
                         method: 'POST',
                         headers: { 'content-type': 'application/json' },
                         body: JSON.stringify({ affordance: 'runtime.ensure', input: {} })
@@ -394,7 +394,7 @@ describe.skipIf(!runLiveEnsure)('runtime.ensure launches or reuses a real Chrome
 
             const targets = await json(
                 await discoverPost(
-                    new Request('http://local/api/agent', {
+                    new Request('http://localhost/api/agent', {
                         method: 'POST',
                         headers: { 'content-type': 'application/json' },
                         body: JSON.stringify({ affordance: 'runtime.targets', input: {} })

@@ -141,8 +141,11 @@ describe('default Chrome user-data-dir', () => {
 
     it('picks the first candidate that exists on disk', () => {
         const root = fs.mkdtempSync(path.join(os.tmpdir(), 'omni-default-profile-'));
-        const chromeDir = path.join(root, 'google-chrome');
-        fs.mkdirSync(chromeDir);
+        // The lookup below simulates platform:'linux', so it joins with '/'
+        // regardless of the host. Building this expectation with the host's
+        // path.join passed on Linux CI and failed on a Windows dev machine.
+        const chromeDir = `${root}/google-chrome`;
+        fs.mkdirSync(path.join(root, 'google-chrome'));
         try {
             expect(
                 resolveExistingDefaultUserDataDir({
