@@ -24,10 +24,11 @@ describe('product entry is the agent surface', () => {
         expect(lead.toLowerCase()).not.toContain('create-next-app');
         expect(lead.toLowerCase()).not.toContain('bootstrapped');
 
-        const citadelAt = readme.toLowerCase().indexOf('citadel');
         const surfaceAt = readme.indexOf('/surface');
         expect(surfaceAt).toBeGreaterThan(-1);
-        expect(citadelAt).toBeGreaterThan(surfaceAt);
+        // This repo is the surface alone; nothing else may claim the lead.
+        expect(lead.toLowerCase()).not.toContain('citadel');
+        expect(lead.toLowerCase()).not.toContain('garden');
     });
 
     it('/surface copy names the product and links discover', () => {
@@ -66,9 +67,9 @@ describe('product entry is the agent surface', () => {
         expect(envFootnote).toBe(-1);
     });
 
-    it('does not rewrite Citadel home', () => {
+    it('/ leads to the surface, the only product here', () => {
         const home = read('src/app/page.tsx');
-        expect(home).toContain('CitadelApp');
-        expect(home).not.toContain('/surface');
+        expect(home).toContain('/surface');
+        expect(home).not.toContain('CitadelApp');
     });
 });

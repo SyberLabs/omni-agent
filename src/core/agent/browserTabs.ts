@@ -5,7 +5,7 @@
 // ============================================
 
 import fs from 'node:fs';
-import { generateId } from '@/lib/utils';
+import { generateId } from './ids';
 import { AgentTabError } from './errors';
 import { EXTRACT_ACTIONS_SOURCE, actionsFromRaw, linksFromActions } from './extract';
 import { __stopEnsuredChrome, clearProcessAttachHttp, getTabRuntime } from './runtime';
