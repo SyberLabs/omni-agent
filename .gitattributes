@@ -1,0 +1,5 @@
+# Keep the tree LF everywhere: several tests slice fixed character
+# windows out of files, which a CRLF checkout would shift.
+* text=auto eol=lf
+*.png binary
+*.ico binary

@@ -8,7 +8,10 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 
 function read(rel: string) {
-    return fs.readFileSync(path.join(process.cwd(), rel), 'utf8');
+    // Normalise EOLs: these assertions slice fixed character windows, and a
+    // CRLF checkout on Windows shifts every offset by one byte per line.
+    const raw = fs.readFileSync(path.join(process.cwd(), rel), 'utf8');
+    return raw.split('\r\n').join('\n');
 }
 
 describe('product entry is the agent surface', () => {
