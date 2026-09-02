@@ -15,8 +15,9 @@ export const AGENT_PRODUCT = {
         'Local lightweight tabs: runtime.ensure opens a debuggable Chrome (reuses one if already ' +
         'up; fails closed if everyday Chrome is open and not debuggable; if Chrome is quit, opens ' +
         'your Chrome / your profile), then list pages (runtime.targets), bind one (tabs.bind), or ' +
-        'launch a disposable profile (.omni/profiles/<tabId>). Not a Citadel canvas and not a ' +
-        'hosted-model chat. Playwright is a test/CI adapter (OMNI_TAB_RUNTIME=playwright). No API ' +
+        'launch a disposable profile (.omni/profiles/<tabId>). Each tab is a live local ' +
+        'browser state, not a note or a transcript. Playwright is a test/CI adapter ' +
+        '(OMNI_TAB_RUNTIME=playwright). No API ' +
         'key is required.',
     invoke: {
         method: 'POST' as const,

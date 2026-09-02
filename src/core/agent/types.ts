@@ -1,7 +1,7 @@
 // ============================================
 // PROJECT OMNI: AGENT SURFACE — TYPES
 // A tab is a live disposable browser page + isolated session.
-// It is not a Citadel canvas and not a hosted-model chat.
+// It is a live page under the caller's control, not a note or a transcript.
 // ============================================
 
 export type JsonSchema = {
