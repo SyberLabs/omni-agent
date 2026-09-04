@@ -1,5 +1,5 @@
 // ============================================
-// PROJECT OMNI: AGENT SURFACE: KEYLESS AFFORDANCES
+// PROJECT OMNI: AGENT SURFACE — KEYLESS AFFORDANCES
 // Named actions over live disposable browser tabs.
 // No API-key product. No Ollama/Anthropic/Gemini/NewsAPI.
 // ============================================
@@ -34,11 +34,11 @@ export const AGENT_AFFORDANCES: Affordance[] = [
         description:
             'Make a debuggable Chrome available and attach. Empty input. Reuses an already-open ' +
             'debug Chrome if one is up. If everyday Chrome/Chromium/Edge is already open and is ' +
-            'not debuggable, this fails closed: it will not launch a second Chrome. If Chrome is ' +
+            'not debuggable, this fails closed — it will not launch a second Chrome. If Chrome is ' +
             'quit, launches your Chrome (your profile) with remote debugging. Falls back to a ' +
             'dedicated .omni/chrome-debug profile only when there is no default profile (CI / no ' +
             'home). After this call, runtime.targets / tabs.bind / tabs.create work without a ' +
-            'separate runtime.attach. tabs.dispose never quits that Chrome: an ensure-launched ' +
+            'separate runtime.attach. tabs.dispose never quits that Chrome — an ensure-launched ' +
             'process stays up after the last tab. Optional companion: npm run chrome:debug.',
         method: 'POST',
         path: '/api/agent',
@@ -50,7 +50,7 @@ export const AGENT_AFFORDANCES: Affordance[] = [
         id: 'runtime.attach',
         description:
             'Point OmniOS at a specific already-open Chrome DevTools endpoint ' +
-            '({cdpUrl} or {port}). The common path is runtime.ensure (empty input): it finds or ' +
+            '({cdpUrl} or {port}). The common path is runtime.ensure (empty input) — it finds or ' +
             'launches a debug Chrome so you do not have to remember --remote-debugging-port. ' +
             'After attach, runtime.targets lists pages and tabs.bind adopts one.',
         method: 'POST',
@@ -176,7 +176,7 @@ export const AGENT_AFFORDANCES: Affordance[] = [
         id: 'tabs.dispose',
         description:
             'Close the OmniOS tab and drop its cookies/storage. Later read/act fail. ' +
-            'On a bound page (tabs.bind), this unbinds only: the user page stays open. ' +
+            'On a bound page (tabs.bind), this unbinds only — the user page stays open. ' +
             'On an OmniOS-created page (tabs.create), this closes that page/target. ' +
             'It never quits the user Chrome process, including a Chrome that runtime.ensure launched.',
         method: 'DELETE',

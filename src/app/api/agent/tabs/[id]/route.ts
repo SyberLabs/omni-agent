@@ -1,5 +1,5 @@
 // ============================================
-// PROJECT OMNI: AGENT SURFACE: ONE TAB
+// PROJECT OMNI: AGENT SURFACE — ONE TAB
 // GET    /api/agent/tabs/{id}  → read
 // DELETE /api/agent/tabs/{id}  → dispose   (no API key)
 // ============================================

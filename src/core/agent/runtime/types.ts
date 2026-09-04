@@ -1,5 +1,5 @@
 // ============================================
-// TabRuntime: a tab is a local lightweight browser state.
+// TabRuntime — a tab is a local lightweight browser state.
 // Product: Chrome/CDP. Playwright is a test/CI adapter only.
 // ============================================
 
@@ -36,7 +36,7 @@ export type RuntimeState = {
     profileDir?: string;
     lastUrl?: string;
     attached?: boolean;
-    /** Bound to a user page: dispose unbinds and must not close that page. */
+    /** Bound to a user page — dispose unbinds and must not close that page. */
     bound?: boolean;
     attachHttp?: string;
     targetId?: string;

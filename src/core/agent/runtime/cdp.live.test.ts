@@ -1,6 +1,6 @@
 // ============================================
 // Product path: real local Chrome via CDP.
-// Skips when this machine has no Chrome/Edge: does not fall back
+// Skips when this machine has no Chrome/Edge — does not fall back
 // to Playwright and call that "local".
 // ============================================
 

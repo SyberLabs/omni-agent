@@ -1,5 +1,5 @@
 // ============================================
-// PROJECT OMNI: AGENT SURFACE: LOCAL TABS
+// PROJECT OMNI: AGENT SURFACE — LOCAL TABS
 // A tab is a local lightweight browser state (Chrome/CDP profile).
 // Playwright is only the test/CI adapter (OMNI_TAB_RUNTIME=playwright).
 // ============================================
@@ -164,7 +164,7 @@ async function ensureLive(id: string): Promise<LiveTab> {
     if (existing) await closeLive(id);
 
     const session = await getTabRuntime().restore(id);
-    // Bound pages stay where the user left them: do not yank the tab back
+    // Bound pages stay where the user left them — do not yank the tab back
     // to the last OmniOS snapshot URL after a process restart.
     if (meta.url && !isBoundTab(id)) await session.goto(meta.url);
     const entry = { session, createdAt: meta.createdAt, updatedAt: diskUpdated };

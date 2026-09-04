@@ -1,7 +1,7 @@
 // ============================================
 // Resolve the everyday Chrome/Chromium/Edge user-data-dir for this OS.
 // Used by runtime.ensure when Chrome is quit. Never kill Chrome.
-// Tests must opt in: Vitest does not open the machine's real profile.
+// Tests must opt in — Vitest does not open the machine's real profile.
 // ============================================
 
 import fs from 'node:fs';

@@ -1,5 +1,5 @@
 // ============================================
-// PROJECT OMNI: AGENT SURFACE: INVOKE
+// PROJECT OMNI: AGENT SURFACE — INVOKE
 // Async dispatcher for live-page affordances. No keys, no providers.
 // ============================================
 

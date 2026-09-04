@@ -1,7 +1,7 @@
 'use client';
 
 // ============================================
-// PROJECT OMNI: AGENT SURFACE: HUMAN VIEW
+// PROJECT OMNI: AGENT SURFACE — HUMAN VIEW
 // Thin local page: live tabs + named affordances. No API key.
 // ============================================
 

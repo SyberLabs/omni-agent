@@ -1,6 +1,6 @@
 // ============================================
 // HTTP/contract: list existing Chrome pages after attach.
-// Uses a mock CDP HTTP endpoint, not Playwright, not a live browser.
+// Uses a mock CDP HTTP endpoint — not Playwright, not a live browser.
 // ============================================
 
 import http from 'node:http';

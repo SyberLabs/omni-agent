@@ -1,5 +1,5 @@
 // ============================================
-// PROJECT OMNI: AGENT SURFACE: live browser tabs
+// PROJECT OMNI: AGENT SURFACE — live browser tabs
 // Discover → open a real page → read → act → persist
 // across a second request → dispose. No API key.
 // ============================================
@@ -111,7 +111,7 @@ beforeEach(async () => {
     await __resetAgentTabs();
 });
 
-describe('agent surface: live keyless browser tabs', () => {
+describe('agent surface — live keyless browser tabs', () => {
     it('discovers named keyless page affordances without any API key', async () => {
         const { status, body } = await json(await discoverGet(new Request('http://localhost/api/agent')));
 

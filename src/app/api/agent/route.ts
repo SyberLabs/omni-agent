@@ -1,5 +1,5 @@
 // ============================================
-// PROJECT OMNI: AGENT SURFACE: DISCOVER / INVOKE
+// PROJECT OMNI: AGENT SURFACE — DISCOVER / INVOKE
 // GET  /api/agent  → named keyless affordances
 // POST /api/agent  → { affordance, input }  (no API key)
 // ============================================
