@@ -1,5 +1,5 @@
 // ============================================
-// PROJECT OMNI: AGENT SURFACE — TABS COLLECTION
+// PROJECT OMNI: AGENT SURFACE: TABS COLLECTION
 // GET  /api/agent/tabs  → list
 // POST /api/agent/tabs  → create   (no API key)
 // ============================================

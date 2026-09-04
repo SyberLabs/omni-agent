@@ -342,7 +342,7 @@ async function closeAttachedTarget(state: RuntimeState | null, entry?: Launched)
         }
         browser.close();
     } catch {
-        // user Chrome already gone — no-op
+        // user Chrome already gone: no-op
     }
 }
 
@@ -357,7 +357,7 @@ async function killLaunched(id: string): Promise<void> {
     launched.delete(id);
     const state = readRuntimeState(id);
     if (entry?.bound || state?.bound) {
-        // Unbind only — do not close the user's page or its BrowserContext.
+        // Unbind only: do not close the user's page or its BrowserContext.
         return;
     }
     if (entry?.attached || state?.attached) {

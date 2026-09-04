@@ -15,7 +15,7 @@ npm run dev
 - Contract (discover): [http://localhost:3000/api/agent](http://localhost:3000/api/agent)
 
 Needs local **Chrome / Chromium / Edge** on the machine running the surface
-(or `OMNI_CHROME_PATH`). Call `runtime.ensure` — it reuses an already-debuggable
+(or `OMNI_CHROME_PATH`). Call `runtime.ensure`: it reuses an already-debuggable
 Chrome or launches one. You do not need to remember `--remote-debugging-port`.
 If everyday Chrome is already open without remote debugging, ensure will not
 open a second Chrome on top of yours.
@@ -42,7 +42,7 @@ browser, so it is reachable only from this machine and only by a caller that
 is not a web page (`src/core/agent/guard.ts`):
 
 - **Loopback only.** `npm run dev` / `npm run start` bind `127.0.0.1`, and the
-  surface refuses any request whose `Host` is not loopback — so a peer on your
+  surface refuses any request whose `Host` is not loopback, so a peer on your
   network cannot reach it even if the server is rebound.
 - **No browser drive-by.** A cross-origin `Sec-Fetch-Site` or `Origin` is
   refused, so a page you happen to visit cannot call these affordances.
@@ -53,7 +53,7 @@ is not a web page (`src/core/agent/guard.ts`):
 
 The curl examples below satisfy all three as written.
 
-Each tab is a **local lightweight browser state** — not a JSON note, not a
+Each tab is a **local lightweight browser state**, not a JSON note, not a
 canvas node, and not a hosted-model chat. OmniOS-created tabs keep cookies /
 `localStorage` in `.omni/profiles/<tabId>/` and rehydrate after a process
 restart. Bound pages (`tabs.bind`) stay in the user's Chrome; dispose unbinds
@@ -63,16 +63,16 @@ and does not delete that profile.
 |--------|------|------------|
 | `GET` | `/api/agent` | Discover named actions (id, description, input schema, what they mutate) |
 | `POST` | `/api/agent` | Invoke `{ "affordance": "<id>", "input": { ... } }` |
-| `POST` | `/api/agent` | `runtime.ensure` — empty input; reuse or launch your Chrome (your profile) and attach (fails closed if everyday Chrome is already open) |
-| `POST` | `/api/agent` | `runtime.attach` — `{ "cdpUrl" }` or `{ "port" }` points at a specific open Chrome |
-| `POST` | `/api/agent` | `runtime.targets` — list already-open pages as `{id, title, url}` |
-| `GET` | `/api/agent/tabs` | `tabs.list` — OmniOS tabs (not the user's other Chrome pages) |
-| `POST` | `/api/agent/tabs` | `tabs.create` — `{ "url" }` loads a **new** page (attached Chrome or new profile) |
-| `POST` | `/api/agent` | `tabs.bind` — `{ "targetId" }` adopts an already-open page as an OmniOS tab |
-| `GET` | `/api/agent/tabs/{id}` | `tabs.read` — title, URL, visible text, `actions[]` refs, `screenshot` |
-| `GET` | `/api/agent/tabs/{id}/screenshot` | `tab.screenshot` — live PNG (`image/png`) |
+| `POST` | `/api/agent` | `runtime.ensure`: empty input; reuse or launch your Chrome (your profile) and attach (fails closed if everyday Chrome is already open) |
+| `POST` | `/api/agent` | `runtime.attach`: `{ "cdpUrl" }` or `{ "port" }` points at a specific open Chrome |
+| `POST` | `/api/agent` | `runtime.targets`: list already-open pages as `{id, title, url}` |
+| `GET` | `/api/agent/tabs` | `tabs.list`: OmniOS tabs (not the user's other Chrome pages) |
+| `POST` | `/api/agent/tabs` | `tabs.create`: `{ "url" }` loads a **new** page (attached Chrome or new profile) |
+| `POST` | `/api/agent` | `tabs.bind`: `{ "targetId" }` adopts an already-open page as an OmniOS tab |
+| `GET` | `/api/agent/tabs/{id}` | `tabs.read`: title, URL, visible text, `actions[]` refs, `screenshot` |
+| `GET` | `/api/agent/tabs/{id}/screenshot` | `tab.screenshot`: live PNG (`image/png`) |
 | `POST` | `/api/agent/tabs/{id}/act` | `tab.navigate` / `tab.click` / `tab.type` (prefer `ref`) |
-| `DELETE` | `/api/agent/tabs/{id}` | `tabs.dispose` — unbinds a bound page (user page stays); closes an OmniOS-created page (does not quit Chrome) |
+| `DELETE` | `/api/agent/tabs/{id}` | `tabs.dispose`: unbinds a bound page (user page stays); closes an OmniOS-created page (does not quit Chrome) |
 
 Closed loop on the product page (not a fixture):
 
@@ -81,13 +81,13 @@ Closed loop on the product page (not a fixture):
 curl http://localhost:3000/api/agent
 # → keyRequired: false, affordances[], contract.version
 
-# 2. Open /surface — create body IS the snapshot (title / text / actions[] / screenshot)
+# 2. Open /surface: create body IS the snapshot (title / text / actions[] / screenshot)
 curl -X POST http://localhost:3000/api/agent/tabs \
   -H 'content-type: application/json' \
   -d '{"url":"http://localhost:3000/surface"}'
 # note TAB_ID and the ref whose name is "Mark ready"
 
-# 3. Act by ref — the act body is a FRESH snapshot (no extra GET)
+# 3. Act by ref: the act body is a FRESH snapshot (no extra GET)
 curl -X POST http://localhost:3000/api/agent/tabs/TAB_ID/act \
   -H 'content-type: application/json' \
   -d '{"affordance":"tab.click","input":{"ref":"eN"}}'
@@ -96,7 +96,7 @@ curl -X POST http://localhost:3000/api/agent/tabs/TAB_ID/act \
 # 4. Screenshot
 curl -o shot.png http://localhost:3000/api/agent/tabs/TAB_ID/screenshot
 
-# 5. Dispose — later read is 404
+# 5. Dispose: later read is 404
 curl -X DELETE http://localhost:3000/api/agent/tabs/TAB_ID
 ```
 
@@ -116,7 +116,7 @@ disposable local profile.
 The product path is `runtime.ensure` (`GET /api/agent` lists it). An agent
 does not remember a CLI flag. Empty input: reuse an already-debuggable
 Chrome if one is up. If everyday Chrome/Chromium/Edge is already open and
-not debuggable, ensure will not open a second Chrome on top of yours —
+not debuggable, ensure will not open a second Chrome on top of yours
 quit it or restart it with remote debugging, then retry. If Chrome is quit,
 ensure opens your Chrome (your profile), not a blank debug profile.
 `.omni/chrome-debug` is only a fallback when there is no default profile
@@ -159,14 +159,14 @@ npm run chrome:debug
 `runtime.attach` remains for a specific `{ "cdpUrl" }` or `{ "port" }`.
 The common path does not need it.
 
-`runtime.targets` is the already-open pages in that Chrome — not OmniOS
+`runtime.targets` is the already-open pages in that Chrome, not OmniOS
 `tabs.list`. `tabs.bind` makes one of those pages an OmniOS tab (snapshot,
 refs, screenshot, act-by-ref). `tabs.dispose` on a **bound** tab **unbinds**
 and does **not** close the user page.
 
 `tabs.create` after ensure/attach still opens a **new OmniOS page/target** in
 that Chrome (isolated context). `tabs.dispose` of that created page closes that
-target only. It does **not** quit Chrome — not the user's process, and not a
+target only. It does **not** quit Chrome, not the user's process, and not a
 Chrome that `runtime.ensure` launched. Dispose of the last tab leaves that
 process up. Never `Browser.close`.
 

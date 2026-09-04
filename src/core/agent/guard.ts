@@ -1,5 +1,5 @@
 // ============================================
-// PROJECT OMNI: AGENT SURFACE — LOCAL-ONLY GUARD
+// PROJECT OMNI: AGENT SURFACE: LOCAL-ONLY GUARD
 //
 // This surface is keyless BY DESIGN (`keyRequired: false` is part of the
 // frozen contract). A surface that checks no key must therefore enforce a
@@ -9,11 +9,11 @@
 //
 // Three layers, because none of them covers what the others do:
 //
-//   1. Loopback host  — a LAN peer cannot reach the surface even when Next
+//   1. Loopback host: a LAN peer cannot reach the surface even when Next
 //      binds 0.0.0.0 (its default), which `next start -H` can always undo.
-//   2. Sec-Fetch-Site / Origin — a page the user visits cannot drive it.
+//   2. Sec-Fetch-Site / Origin: a page the user visits cannot drive it.
 //      Browsers always send Sec-Fetch-Site; curl and agents never do.
-//   3. JSON content-type on POST — `text/plain` is CORS-safelisted, so a
+//   3. JSON content-type on POST: `text/plain` is CORS-safelisted, so a
 //      cross-origin POST carrying it is a *simple request*: no preflight,
 //      delivered, side effects run, response merely unreadable. Requiring
 //      `application/json` forces a preflight this app never answers, so the

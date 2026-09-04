@@ -290,7 +290,7 @@ describe('runtime.ensure', () => {
         fs.rmSync(defaultDir, { recursive: true, force: true });
     });
 
-    it('launches the existing default profile — not .omni/chrome-debug — when Chrome is quit', async () => {
+    it('launches the existing default profile (not .omni/chrome-debug) when Chrome is quit', async () => {
         const mock = await mockCdp();
         const defaultDir = fs.mkdtempSync(path.join(os.tmpdir(), 'omni-default-ud-'));
         const lock = path.join(defaultDir, 'SingletonLock');

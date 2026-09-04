@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ============================================
-   OMNI AGENT — SURFACE TOKENS
+   OMNI AGENT: SURFACE TOKENS
    Carried over from the OmniOS canvas the surface was extracted from, so
    /surface renders identically. Kept deliberately small: this repo is an
    HTTP contract with one page, not a design system.

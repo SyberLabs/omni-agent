@@ -1,5 +1,5 @@
 // ============================================
-// runtime.ensure — first-class keyless attach helper.
+// runtime.ensure: first-class keyless attach helper.
 // Reuse an already-debuggable Chrome, or launch the user's Chrome (their
 // profile) with remote debugging. .omni/chrome-debug is fallback only when
 // there is no default profile. Never open the default profile while Chrome
@@ -307,7 +307,7 @@ export function __ensuredLaunchProfile(): EnsureLaunchResolved | null {
 
 /**
  * Test hook: stop a Chrome that runtime.ensure launched.
- * Product tabs.dispose never calls this — an ensure-launched Chrome stays up.
+ * Product tabs.dispose never calls this: an ensure-launched Chrome stays up.
  */
 export async function __stopEnsuredChrome(): Promise<void> {
     const entry = launchedDebug;
@@ -328,7 +328,7 @@ export async function __stopEnsuredChrome(): Promise<void> {
             await sleep(200);
         }
     }
-    // Never delete the user's default profile — only the dedicated debug fallback.
+    // Never delete the user's default profile: only the dedicated debug fallback.
     if (entry?.kind !== 'default') {
         const profile = entry?.profile || debugChromeProfile();
         if (inTest() && fs.existsSync(profile)) {

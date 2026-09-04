@@ -1,5 +1,5 @@
 // ============================================
-// PROJECT OMNI: AGENT SURFACE — ACT ON A TAB
+// PROJECT OMNI: AGENT SURFACE: ACT ON A TAB
 // POST /api/agent/tabs/{id}/act  { affordance, input }  (no API key)
 // ============================================
 

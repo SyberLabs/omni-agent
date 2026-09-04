@@ -1,5 +1,5 @@
 // ============================================
-// PROJECT OMNI: AGENT SURFACE — TAB SCREENSHOT
+// PROJECT OMNI: AGENT SURFACE: TAB SCREENSHOT
 // GET /api/agent/tabs/{id}/screenshot  → image/png  (no API key)
 // ============================================
 

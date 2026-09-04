@@ -1,5 +1,5 @@
 // ============================================
-// PROJECT OMNI: AGENT SURFACE — TYPES
+// PROJECT OMNI: AGENT SURFACE: TYPES
 // A tab is a live disposable browser page + isolated session.
 // It is a live page under the caller's control, not a note or a transcript.
 // ============================================

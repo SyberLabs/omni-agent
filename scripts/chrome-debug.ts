@@ -9,7 +9,7 @@ import { ensureDir } from '../src/core/agent/runtime/paths';
 const chrome = findChrome();
 if (!chrome) {
     console.error('No Chrome/Chromium/Edge found. Install Chrome or set OMNI_CHROME_PATH.');
-    console.error('An agent should call runtime.ensure — it launches Chrome when needed.');
+    console.error('An agent should call runtime.ensure: it launches Chrome when needed.');
     process.exit(1);
 }
 
