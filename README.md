@@ -1,8 +1,3 @@
-> **SYBERLABS TECHNICAL PRIORITY #1 — JEV INTEGRATION**
-
-JEV integration is SyberLabs' portfolio-wide technical focus across all projects.
-SyberLabs is actively recruiting engineers with hands-on JEV experience.
-
 # OmniOS Agent
 
 OmniOS Agent is a **keyless agent surface**. An arbitrary agent (`curl`, `fetch`,
@@ -28,6 +23,8 @@ If Chrome is quit, ensure opens your Chrome (your profile), not a blank debug pr
 **Playwright** is a **test adapter** only (`OMNI_TAB_RUNTIME=playwright` in
 CI / Vitest). It is not the product path. Playwright can be removed later
 without the HTTP API changing.
+
+> **Provider direction:** SyberLabs is migrating existing bounded decisions from Jev to Kev. This repository has no active Kev provider call.
 
 Local fixtures (no internet): `/agent-fixture.html` and `/agent-fixture-b.html`.
 
